@@ -1,0 +1,132 @@
+/* Controle de exibição das telas */
+.screen {
+  display: none !important;
+}
+
+.screen.active {
+  display: block !important;
+}
+
+/* Fundo da página em tom rosa bem suave */
+.bg-pink-soft {
+  background-color: #fff0f5 !important;
+}
+
+/* Cores de texto e botões em tons de rosa */
+.text-pink-dark {
+  color: #b83280 !important;
+}
+
+.btn-pink {
+  background-color: #d53f8c !important;
+  border-color: #d53f8c !important;
+  color: white !important;
+  transition: background-color 0.2s;
+}
+
+.btn-pink:hover {
+  background-color: #b83280 !important;
+  border-color: #b83280 !important;
+  color: white !important;
+}
+
+.btn-whatsapp {
+  background-color: #c2257a !important;
+  border-color: #c2257a !important;
+  color: white !important;
+}
+
+.btn-whatsapp:hover {
+  background-color: #c2257a !important;
+  border-color: #c2257a !important;
+  color: white !important;
+}
+
+/* Cabeçalho da tabela administrativo em tom rosa */
+.table-pink-header {
+  background-color: #f687b3 !important;
+  color: #fff !important;
+}
+
+.table-pink-header th {
+  background-color: #f687b3 !important;
+  color: #fff !important;
+}
+
+/* Inputs focados com borda rosa */
+.form-control:focus {
+  border-color: #f687b3;
+  box-shadow: 0 0 0 0.25rem rgba(245, 103, 166, 0.25);
+}
+
+/* Grid personalizada para os carimbos circulares */
+.stamp-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.stamp-slot {
+  aspect-ratio: 1;
+  border: 2px dashed #fbb6ce;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #d53f8c;
+  background-color: #fff5f7;
+  font-size: 0.9rem;
+}
+
+.stamp-slot.stamped {
+  border: 2px solid #d53f8c;
+  background-color: #d53f8c;
+  color: white;
+  position: relative;
+}
+
+.stamp-slot.stamped::after {
+  content: '★';
+  font-size: 1.1rem;
+}
+
+/* Torna o card levemente translúcido para a imagem aparecer por trás */
+.card {
+  background-color: rgba(255, 255, 255, 0.90) !important; /* 90% de opacidade */
+  backdrop-filter: blur(5px); /* Dá um efeito de desfoque elegante no fundo */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Cria a marca d'água da logo centralizada e transparente atrás do conteúdo */
+#screen-login::before,
+#screen-card::before,
+#screen-admin::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  height: 450px;
+  background-image: url('fran.png'); /* Certifique-se de que o nome do arquivo da logo está correto */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.12; /* Deixa a logo bem transparente (marca d'água) */
+  pointer-events: none; /* Garante que o usuário consiga clicar nos inputs normalmente por cima */
+  z-index: 0;
+}
+
+/* Garante que os elementos do formulário fiquem na camada superior da logo */
+.card form, 
+.card h2, 
+.card p, 
+.card div, 
+.card button, 
+.card table {
+  position: relative;
+  z-index: 1;
+}
